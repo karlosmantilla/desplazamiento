@@ -21,6 +21,8 @@ halcaldes<-extorsion[,c('Cod..Mpio.','Departamento','Valor','año')]
 halcaldes$halcaldes<-halcaldes$Valor
 
 hdocentesnosind<-read.table('hdocentesnosind.txt',header=T,sep='\t',dec=',')
+hdocentesnosind<-extorsion[,c('Cod..Mpio.','Departamento','Valor','año')]
+hdocentesnosind$hdocentesnosind<-hdocentesnosind$Valor
 
 hdocentesind<-read.table('hdocentesind.txt',header=T,sep='\t',dec=',')
 
@@ -45,3 +47,6 @@ data3<-data3[,-7]
 
 data4<-merge(data3, halcaldes,by=c('Cod..Mpio.','Departamento','año'), all = TRUE)
 data4<-data4[,-8]
+
+data5<-merge(data4, hdocentesnosind,by=c('Cod..Mpio.','Departamento','año'), all = TRUE)
+data5<-data5[,-9]
