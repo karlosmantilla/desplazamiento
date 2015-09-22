@@ -13,8 +13,12 @@ desaparecidos1<-desaparecidos[,c('Cod..Mpio.','Departamento','Valor','año')]
 desaparecidos1$desap<-desaparecidos$Valor
 
 extorsion<-read.table('extorsion.txt',header=T,sep='\t',dec=',')
+extorsion1<-extorsion[,c('Cod..Mpio.','Departamento','Valor','año')]
+extorsion1$extor<-extorsion1$Valor
 
 halcaldes<-read.table('halcaldes.txt',header=T,sep='\t',dec=',')
+halcaldes<-extorsion[,c('Cod..Mpio.','Departamento','Valor','año')]
+halcaldes$halcaldes<-halcaldes$Valor
 
 hdocentesnosind<-read.table('hdocentesnosind.txt',header=T,sep='\t',dec=',')
 
@@ -36,3 +40,8 @@ data1<-data1[,c('Cod..Mpio.','Departamento','año','acsubv','coca')]
 data2<-merge(data1, desaparecidos1,by=c('Cod..Mpio.','Departamento','año'), all = TRUE)
 data2<-data2[,-6]
 
+data3<-merge(data2, extorsion1,by=c('Cod..Mpio.','Departamento','año'), all = TRUE)
+data3<-data3[,-7]
+
+data4<-merge(data3, halcaldes,by=c('Cod..Mpio.','Departamento','año'), all = TRUE)
+data4<-data4[,-8]
