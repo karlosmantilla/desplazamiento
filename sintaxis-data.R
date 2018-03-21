@@ -80,3 +80,5 @@ summary(data11)
 # Exportar tabla:
 
 write.table(data11, "violencia.txt", sep="\t")
+
+##
